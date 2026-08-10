@@ -21,7 +21,6 @@ recadinhos.slice().reverse().forEach((recado, index) => {
     const card = document.createElement('div');
     card.classList.add('card');
     
-    // Z-index ajustado para garantir que fiquem acima da mensagem final
     card.style.zIndex = 10 + index;
 
     card.innerHTML = `
@@ -43,6 +42,9 @@ let startX = 0;
 let currentX = 0;
 let isDragging = false;
 let currentCard = null;
+
+// Conta quantas cartas temos no total
+let cartasRestantes = cards.length; 
 
 cards.forEach(card => {
     card.addEventListener('touchstart', dragStart);
@@ -104,6 +106,13 @@ function dragEnd() {
         const cardToRemove = currentCard;
         setTimeout(() => {
             cardToRemove.remove();
+            
+            // Diminui a contagem e revela o final pelo ID correto
+            cartasRestantes--;
+            if (cartasRestantes === 0) {
+                document.getElementById('tela-final').classList.add('mostrar');
+            }
+
         }, 500);
     } else {
         currentCard.style.transition = 'transform 0.3s ease-out';
