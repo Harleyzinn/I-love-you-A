@@ -2,52 +2,42 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- Essa linha bloqueia o zoom e adapta perfeitamente ao iPhone -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Você 🎀</title>
+    <!-- Importando uma fonte fofa e arredondada do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app">
-        <!-- Tela final que aparece quando os cartões acabam -->
+        <!-- Tela final surpresa -->
         <div class="mensagem-final">
             <h2>Acabaram as cartinhas! 🥺</h2>
-            <p>Mas seu prêmio real está guardado: um doce de verdade comigo. Topa?</p>
-            <div class="emoji-gigante">🍩🍫</div>
+            <p>Mas seu prêmio real está te esperando: um doce de verdade comigo. Topa?</p>
+            <div class="emoji-gigante">🍩💖</div>
+            
+            <!-- Nova mensagem de encerramento -->
+            <div class="texto-destaque">
+                Apresente isso ao seu futuro namorado a próxima vez que nos vermos 😉
+            </div>
+            
+            <!-- O botão de OBS -->
+            <p class="obs-texto" id="btn-obs">OBS: clique aqui 💌</p>
         </div>
 
-        <!-- Container onde os cartões vão ficar empilhados -->
-        <div id="card-container">
-            
-            <!-- Cartão 3 (Fica por baixo) -->
-            <div class="card">
-                <div class="card-image bg-3">🧁</div>
-                <div class="card-content">
-                    <h3>Surpresa!</h3>
-                    <p>A surpresa é que eu tô com muita vontade de te dar um abraço hoje! 🥰</p>
-                </div>
-            </div>
+        <!-- Onde as cartas vão aparecer magicamente -->
+        <div id="card-container"></div>
 
-            <!-- Cartão 2 (Fica no meio) -->
-            <div class="card">
-                <div class="card-image bg-2">🎀</div>
-                <div class="card-content">
-                    <h3>Fato Científico</h3>
-                    <p>O seu sorriso consegue ser mais fofo e adorável que a própria Hello Kitty.</p>
-                </div>
+        <!-- O Modal (Janela flutuante) do recado especial -->
+        <div id="modal-amor" class="modal-escondido">
+            <div class="modal-conteudo">
+                <h3>Para deixar claro...</h3>
+                <p>Você é meu mundo, o motivo de eu sorrir todos os dias. Nunca esqueça o quanto você é especial para mim! ❤️</p>
+                <button id="btn-fechar-modal">Fechar 🥰</button>
             </div>
-
-            <!-- Cartão 1 (Fica no topo - o primeiro a ser visto) -->
-            <div class="card">
-                <div class="card-image bg-1">🍬</div>
-                <div class="card-content">
-                    <h3>Oie!</h3>
-                    <p>Mesmo que o dia esteja meio chato ou desanimado, lembre-se que você é meu docinho favorito!</p>
-                </div>
-            </div>
-
         </div>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
