@@ -1,25 +1,32 @@
-/* Zera margens e define a fonte */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 body {
-    background-color: #ffe6ea; /* Fundo rosa bem clarinho */
-    overflow: hidden; /* Esconde qualquer barra de rolagem */
+    background: linear-gradient(-45deg, #ffe6ea, #ffb6c1, #ffdae0, #fff0f5);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    overflow: hidden;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 #app {
     position: relative;
     width: 100%;
     height: 100%;
-    max-width: 400px; /* Limita o tamanho em telas grandes */
+    max-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +35,7 @@ body {
 #card-container {
     position: relative;
     width: 85%;
-    height: 65%;
+    height: 68%;
     perspective: 1000px;
 }
 
@@ -38,66 +45,164 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
-    border-radius: 25px; /* Bordas bem redondinhas estilo iOS */
-    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5); /* Sombra rosa suave */
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 35px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    touch-action: none; /* Previne que a tela role quando ela tentar deslizar o cartão */
+    touch-action: none;
     transform-origin: 50% 100%;
-    transition: transform 0.3s ease-out; /* Para o cartão voltar suavemente se não deslizar tudo */
+    transition: transform 0.3s ease-out;
 }
 
-/* Cores de fundo onde você pode colocar imagens depois */
 .card-image {
-    flex: 1;
+    flex: 1.2;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    font-size: 90px;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.1); 
 }
-.bg-1 { background-color: #ffb6c1; } /* Rosa Hello Kitty */
-.bg-2 { background-color: #ffdae0; }
-.bg-3 { background-color: #ffc0cb; }
 
 .card-content {
-    padding: 25px 20px;
+    padding: 30px 20px;
     text-align: center;
     background: white;
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card-content h3 {
     color: #ff4d6d;
-    margin-bottom: 10px;
-    font-size: 24px;
+    margin-bottom: 12px;
+    font-size: 26px;
+    font-weight: 900;
 }
 
 .card-content p {
-    color: #666;
-    font-size: 16px;
-    line-height: 1.5;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 700;
 }
 
 .mensagem-final {
     position: absolute;
     text-align: center;
     padding: 30px;
-    color: #ff4d6d;
-    z-index: -1; /* Fica atrás dos cartões */
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .mensagem-final h2 {
-    font-size: 28px;
+    color: #ff4d6d;
+    font-size: 32px;
+    font-weight: 900;
     margin-bottom: 15px;
 }
 
 .mensagem-final p {
-    color: #666;
-    font-size: 18px;
+    color: #555;
+    font-size: 19px;
+    font-weight: 700;
 }
 
 .emoji-gigante {
-    font-size: 60px;
-    margin-top: 20px;
+    font-size: 70px;
+    margin: 20px 0;
+    animation: pular 2s infinite;
+}
+
+@keyframes pular {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Novo estilo para o texto final em formato de placa/cartão */
+.texto-destaque {
+    background: #ff4d6d;
+    color: white;
+    padding: 15px 25px;
+    font-size: 17px;
+    font-weight: 900;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    margin-top: 10px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.obs-texto {
+    margin-top: 25px;
+    color: #ff758f;
+    font-size: 17px;
+    font-weight: 900;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.modal-escondido {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-escondido.ativo {
+    display: flex;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.modal-conteudo {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 35px;
+    text-align: center;
+    width: 85%;
+    box-shadow: 0 15px 40px rgba(255, 77, 109, 0.3);
+    border: 3px solid #ffdae0;
+}
+
+.modal-conteudo h3 {
+    color: #ff4d6d;
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.modal-conteudo p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+#btn-fechar-modal {
+    background: #ffb6c1;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 900;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
