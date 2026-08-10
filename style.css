@@ -96,10 +96,12 @@ body {
     position: absolute;
     text-align: center;
     padding: 30px;
-    z-index: 1; /* Trazido para a frente, mas ainda atrás dos cartões */
+    width: 100%;
+    z-index: 5; /* Elevado para garantir que não fique atrás de nada invisível */
     display: flex;
     flex-direction: column;
     align-items: center;
+    pointer-events: auto; /* Força a aceitar cliques */
 }
 
 .mensagem-final h2 {
@@ -143,17 +145,22 @@ body {
     text-align: center;
 }
 
-/* Transformado em botão para garantir o clique */
+/* NOVO ESTILO DO BOTÃO OBS: Fofo, clicável e sem o visual padrão feio */
 .btn-obs {
-    background: none;
-    border: none;
-    margin-top: 25px;
-    color: #ff758f;
-    font-size: 17px;
+    background-color: #ffffff; /* Fundo branco pra destacar */
+    border: 2px solid #ffb6c1; /* Bordinha rosa */
+    color: #ff4d6d;
+    padding: 12px 25px;
+    font-size: 16px;
     font-weight: 900;
+    border-radius: 25px; /* Arredondado igual os cartões */
     cursor: pointer;
-    text-decoration: underline;
-    padding: 10px;
+    margin-top: 25px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2); /* Sombra fofa */
+    appearance: none; /* Remove o estilo padrão feio do navegador */
+    -webkit-appearance: none; /* Remove o estilo padrão no iPhone/Safari */
+    outline: none;
+    pointer-events: auto;
 }
 
 .modal-escondido {
