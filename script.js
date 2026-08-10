@@ -21,7 +21,8 @@ recadinhos.slice().reverse().forEach((recado, index) => {
     const card = document.createElement('div');
     card.classList.add('card');
     
-    card.style.zIndex = index;
+    // Z-index ajustado para garantir que fiquem acima da mensagem final
+    card.style.zIndex = 10 + index;
 
     card.innerHTML = `
         <div class="card-image" style="background-color: ${recado.cor}">
