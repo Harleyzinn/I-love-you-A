@@ -37,7 +37,7 @@ body {
     width: 85%;
     height: 68%;
     perspective: 1000px;
-    pointer-events: none; /* Deixa o clique atravessar o container vazio */
+    pointer-events: none; 
 }
 
 .card {
@@ -56,7 +56,7 @@ body {
     touch-action: none;
     transform-origin: 50% 100%;
     transition: transform 0.3s ease-out;
-    pointer-events: auto; /* Garante que os cartões ainda podem ser clicados */
+    pointer-events: auto; 
 }
 
 .card-image {
@@ -92,16 +92,22 @@ body {
     font-weight: 700;
 }
 
+/* --- TELA FINAL TOTALMENTE ESCONDIDA POR PADRÃO --- */
 .mensagem-final {
     position: absolute;
     text-align: center;
     padding: 30px;
     width: 100%;
-    z-index: 5; /* Elevado para garantir que não fique atrás de nada invisível */
-    display: flex;
+    z-index: 50;
     flex-direction: column;
     align-items: center;
-    pointer-events: auto; /* Força a aceitar cliques */
+    display: none; /* A tela não existe até ser chamada */
+}
+
+/* O script vai adicionar essa classe quando acabar as cartas */
+.mensagem-final.mostrar {
+    display: flex; 
+    animation: fadeIn 0.8s ease-in-out; /* Aparece com um efeito suave */
 }
 
 .mensagem-final h2 {
@@ -145,20 +151,19 @@ body {
     text-align: center;
 }
 
-/* NOVO ESTILO DO BOTÃO OBS: Fofo, clicável e sem o visual padrão feio */
 .btn-obs {
-    background-color: #ffffff; /* Fundo branco pra destacar */
-    border: 2px solid #ffb6c1; /* Bordinha rosa */
+    background-color: #ffffff; 
+    border: 2px solid #ffb6c1; 
     color: #ff4d6d;
     padding: 12px 25px;
     font-size: 16px;
     font-weight: 900;
-    border-radius: 25px; /* Arredondado igual os cartões */
+    border-radius: 25px; 
     cursor: pointer;
     margin-top: 25px;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2); /* Sombra fofa */
-    appearance: none; /* Remove o estilo padrão feio do navegador */
-    -webkit-appearance: none; /* Remove o estilo padrão no iPhone/Safari */
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2); 
+    appearance: none; 
+    -webkit-appearance: none; 
     outline: none;
     pointer-events: auto;
 }
