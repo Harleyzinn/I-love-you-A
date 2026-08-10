@@ -1,0 +1,103 @@
+/* Zera margens e define a fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffe6ea; /* Fundo rosa bem clarinho */
+    overflow: hidden; /* Esconde qualquer barra de rolagem */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 400px; /* Limita o tamanho em telas grandes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-container {
+    position: relative;
+    width: 85%;
+    height: 65%;
+    perspective: 1000px;
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 25px; /* Bordas bem redondinhas estilo iOS */
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5); /* Sombra rosa suave */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    touch-action: none; /* Previne que a tela role quando ela tentar deslizar o cartão */
+    transform-origin: 50% 100%;
+    transition: transform 0.3s ease-out; /* Para o cartão voltar suavemente se não deslizar tudo */
+}
+
+/* Cores de fundo onde você pode colocar imagens depois */
+.card-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+}
+.bg-1 { background-color: #ffb6c1; } /* Rosa Hello Kitty */
+.bg-2 { background-color: #ffdae0; }
+.bg-3 { background-color: #ffc0cb; }
+
+.card-content {
+    padding: 25px 20px;
+    text-align: center;
+    background: white;
+}
+
+.card-content h3 {
+    color: #ff4d6d;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.mensagem-final {
+    position: absolute;
+    text-align: center;
+    padding: 30px;
+    color: #ff4d6d;
+    z-index: -1; /* Fica atrás dos cartões */
+}
+
+.mensagem-final h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.mensagem-final p {
+    color: #666;
+    font-size: 18px;
+}
+
+.emoji-gigante {
+    font-size: 60px;
+    margin-top: 20px;
+}
