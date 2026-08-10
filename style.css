@@ -37,6 +37,7 @@ body {
     width: 85%;
     height: 68%;
     perspective: 1000px;
+    pointer-events: none;
 }
 
 .card {
@@ -55,6 +56,7 @@ body {
     touch-action: none;
     transform-origin: 50% 100%;
     transition: transform 0.3s ease-out;
+    pointer-events: auto;
 }
 
 .card-image {
